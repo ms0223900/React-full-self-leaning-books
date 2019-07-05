@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Game from './Game';
 
-//紀錄贏的二維陣列
+//紀錄贏的二維陣列,判斷誰贏了
 function calculateWinner(squares) {
   const lines = [
     [0, 1, 2],

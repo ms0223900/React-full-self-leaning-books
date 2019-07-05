@@ -3,6 +3,8 @@ import Square from './Square';
 
 class Board extends React.Component{
 
+  //透過render function 去呼叫紫原件
+  //i 是傳入的值
   renderSquare(i) {
     return (
       <Square
@@ -12,6 +14,7 @@ class Board extends React.Component{
     );
   }
 
+//共有九格,存成陣列。
   render() {
     return (
       <div>
