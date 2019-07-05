@@ -3,27 +3,42 @@ import Square from './Square';
 import Board from './Board';
 
 class Game extends React.Component {
+  //建立建構子傳入值
   constructor(props) {
     super(props);
     this.state = {
       history: [
         {
           squares: Array(9).fill(null)
+          //紀錄ooxx的值，放在陣列。
         }
       ],
       stepNumber: 0,
+      //步驟紀錄
       xIsNext: true
+      //x和o交換 布林值
     };
   }
 
+  //點擊事件
   handleClick(i) {
+
+    //步驟記錄
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
+
+    //當前紀錄
     const current = history[history.length - 1];
+
+    // 判斷誰贏誰輸
     const squares = current.squares.slice();
     if (calculateWinner(squares) || squares[i]) {
       return;
     }
+
+    // 如果x是下一個話 就是x,否則就是Ｏ
     squares[i] = this.state.xIsNext ? "X" : "O";
+
+    //紀錄x o 更新
     this.setState({
       history: history.concat([
         {
@@ -35,6 +50,7 @@ class Game extends React.Component {
     });
   }
 
+  //紀錄xo步數
   jumpTo(step) {
     this.setState({
       stepNumber: step,
@@ -47,6 +63,7 @@ class Game extends React.Component {
     const current = history[this.state.stepNumber];
     const winner = calculateWinner(current.squares);
 
+    //輪流到誰先。
     const moves = history.map((step, move) => {
       const desc = move ?
         'Go to move #' + move :
@@ -58,6 +75,7 @@ class Game extends React.Component {
       );
     });
 
+    //紀錄誰贏了
     let status;
     if (winner) {
       status = "Winner: " + winner;

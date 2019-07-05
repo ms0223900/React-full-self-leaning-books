@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Game from './Game';
 
+//紀錄贏的二維陣列
 function calculateWinner(squares) {
   const lines = [
     [0, 1, 2],
