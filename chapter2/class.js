@@ -44,7 +44,52 @@
 //   toString() {},
 //   toValue() {},
 // };
+// class B {}
+// let b = new B();
 //
+// b.constructor === B.prototype.constructor // true
+
+// class Point {
+//   constructor(){
+//     // ...
+//   }
+// }
+//Oject.assign 添加多個方法。
+// Object.assign(Point.prototype, {
+//   toString(){},
+//   toValue(){}
+// });
+// Point.prototype.constructor === Point // true
+
+
+// class Point {
+//   constructor(x, y) {
+//     // ...
+//   }
+//
+//   toString() {
+//     // ...
+//   }
+// }
+//
+// Object.keys(Point.prototype)
+// // []
+// Object.getOwnPropertyNames(Point.prototype)
+// // ["constructor","toString"]
+
+// var Point = function (x, y) {
+//   // ...
+// };
+//
+// Point.prototype.toString = function() {
+//   // ...
+// };
+//
+// Object.keys(Point.prototype)
+// // ["toString"]
+// Object.getOwnPropertyNames(Point.prototype)
+// // ["constructor","toString"]
+
 ex:
 String.prototype.repeatify = String.prototype.repeatify || function(times) {
    let str = '';
@@ -52,6 +97,6 @@ String.prototype.repeatify = String.prototype.repeatify || function(times) {
    for (let i = 0; i < times; i++) {
       str += this;
    }
- 
+
    return str;
 };
