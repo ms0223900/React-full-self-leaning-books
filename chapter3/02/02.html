@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JSX基本語法</title>
+</head>
+<body>
+  <div id="app"></div>
+  
+  <!--react-->
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+  
+  <!--Babel-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.18.1/babel.min.js"></script>
+  
+  <script type="text/babel">
+    //建立一個DOM物件
+    let element = <h1>Hello, world!</h1>
+
+    //使用ReactDOM.render把剛建立的物件element插入目標DOM中
+    ReactDOM.render(
+      element,
+      document.getElementById('root')
+    );
+  </script>
+</body>
+</html>
