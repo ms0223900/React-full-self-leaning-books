@@ -17,6 +17,22 @@ webpack cli
 npm install webpack-cli -g
 
 
-熟悉指令
-
+#熟悉指令
 mkdir ProjectName 建立專案資料夾
+cd ProjectName
+npm init
+npm init -y 快速產生。
+
+#產生package.json
+主要要了解的
+1. devDependencies
+開發的時候會用到的套件，例如負責打包的webpack。
+1. dependencies
+上線發佈後依然需要用到的套件，例如我們這次學的主題react。
+或者npm install webpack --save-dev 自動紀錄這件事情。
+
+npm install webpack-cli -dev
+
+
+#react開發環境
+npm install react react-dom --save

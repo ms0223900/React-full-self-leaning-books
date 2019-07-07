@@ -21,6 +21,9 @@ React 16 最新特色、前端框架比較、列表渲染、生命週期、從�
 1. 窺探物件導向: class “Ｏ”
 
 2. Nodejs 與 npm 與 webpack “Ｏ”
+https://medium.com/@Mike_Cheng1208/webpack%E6%95%99%E5%AD%B8-%E5%9B%9B-javascript-%E8%88%87-babel-1d7acd911e63
+https://ithelp.ithome.com.tw/articles/10200329
+https://www.valentinog.com/blog/babel/
 
 3. ES6 其他好用的特色 “Ｏ”
 
