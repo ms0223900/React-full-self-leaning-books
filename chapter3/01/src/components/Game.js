@@ -2,6 +2,28 @@ import React from 'react';
 import Square from './Square';
 import Board from './Board';
 
+
+//紀錄贏的二維陣列,判斷誰贏了
+function calculateWinner(squares) {
+  const lines = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+  ];
+  for (let i = 0; i < lines.length; i++) {
+    const [a, b, c] = lines[i];
+    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+      return squares[a];
+    }
+  }
+  return null;
+}
+
 class Game extends React.Component {
   //建立建構子傳入值
   constructor(props) {
@@ -15,7 +37,7 @@ class Game extends React.Component {
       ],
       stepNumber: 0,
       //步驟紀錄
-      xIsNext: true
+      oIsNext: true
       //x和o交換 布林值
     };
   }
@@ -36,7 +58,7 @@ class Game extends React.Component {
     }
 
     // 如果x是下一個話 就是x,否則就是Ｏ
-    squares[i] = this.state.xIsNext ? "X" : "O";
+    squares[i] = this.state.oIsNext ? "O" : "X";
 
     //紀錄x o 更新
     this.setState({
@@ -46,7 +68,7 @@ class Game extends React.Component {
         }
       ]),
       stepNumber: history.length,
-      xIsNext: !this.state.xIsNext
+      oIsNext: !this.state.oIsNext
     });
   }
 
@@ -54,7 +76,7 @@ class Game extends React.Component {
   jumpTo(step) {
     this.setState({
       stepNumber: step,
-      xIsNext: (step % 2) === 0
+      oIsNext: (step % 2) === 0
     });
   }
 
@@ -80,7 +102,7 @@ class Game extends React.Component {
     if (winner) {
       status = "Winner: " + winner;
     } else {
-      status = "Next player: " + (this.state.xIsNext ? "X" : "O");
+      status = "Next player: " + (this.state.oIsNext ? "O" : "X");
     }
 
     return (
@@ -99,3 +121,5 @@ class Game extends React.Component {
     );
   }
 }
+
+export default Game;

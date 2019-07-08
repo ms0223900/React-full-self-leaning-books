@@ -13,9 +13,6 @@ React 16 最新特色、前端框架比較、列表渲染、生命週期、從�
 ![Alt text](https://cdn.hiskio.com/images/ScG18o0SI78fmD4 "optional title")
 
 
-
-
-
 ##第2章
 
 1. 窺探物件導向: class “Ｏ”
@@ -32,7 +29,12 @@ https://www.valentinog.com/blog/babel/
 
 ##第3章
 
-1. 學 React 之前先寫 React “Ｏ”
+1. 學 React 之前先寫 React “井字遊戲練習。增加電腦玩家”
+思考方向:
+先選擇你要o還是Ｘ
+選擇預設玩家先開始
+
+
 
 2. JSX 語法: 用 JS 寫 HTML "Ｏ"
 
