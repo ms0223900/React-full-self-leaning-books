@@ -34,8 +34,6 @@ https://www.valentinog.com/blog/babel/
 先選擇你要o還是Ｘ
 選擇預設玩家先開始
 
-
-
 2. JSX 語法: 用 JS 寫 HTML "Ｏ"
 
 3. 組件超入門 “Ｏ”
