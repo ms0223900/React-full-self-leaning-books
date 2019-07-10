@@ -1,12 +1,21 @@
 import React from 'react';
+import '../App.css';
 
-//九宮格每個按鈕都一個小組件
-function Square(props){
-  return (
-    <button className="square" onClick={props.onClick}>
-      {props.value}
-    </button>
-  );
+class Square extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            value: null,
+        };
+    }
+
+    render() {
+        return (
+            <button className="square" style={this.props.squareStyle} onClick={this.props.onClicked}>
+                {this.props.value}
+            </button>
+        )
+    }
 }
 
-export default Square;
+export default Square
