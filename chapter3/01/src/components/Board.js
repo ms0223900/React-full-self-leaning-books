@@ -2,41 +2,38 @@ import React from 'react';
 import Square from './Square';
 
 class Board extends React.Component{
+ constructor(props){
+   super(props)
+   this.state = {
+     values: ['', '', '', '', '', '', '', '', ''],
+     isTurnX: true,
+     startX: true
+   }
+   this.handleClicked = this.handleClicked.bind(this)
+   this.calculateGameState = this.calculateGameState.bind(this)
+   this.findEmpties = this.findEmpties.bind(this)
+   this.minimax = this.minimax.bind(this)
+   this.searchMove = this.searchMove.bind(this)
+   this.restartGame = this.restartGame.bind(this)
+   this.randomlyChoose = this.randomlyChoose.bind(this)
+   this.displayGameState = this.displayGameState.bind(this)
+ }
 
-  //透過render function 去呼叫紫原件
-  //i 是傳入的值
-  renderSquare(i) {
-    return (
-      <Square
-        value={this.props.squares[i]}
-        onClick={() => this.props.onClick(i)}
-      />
-    );
-  }
+ renderSquare(index, value){
+   const squareStyles = [
+    {"border-left": "0px", "border-top": "0px"},
+    {"border-top": "0px"},
+    {"border-right": "0px", "border-top": "0px"},
+    {"border-left": "0px"},
+    {},
+    {"border-right": "0px"},
+    {"border-left": "0px", "border-bottom": "0px"},
+    {"border-bottom": "0px"},
+    {"border-right": "0px", "border-bottom": "0px"},
+   ]
 
-//共有九格,存成陣列。
-  render() {
-    return (
-      <div>
-        <div className="board-row">
-          {this.renderSquare(0)}
-          {this.renderSquare(1)}
-          {this.renderSquare(2)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(3)}
-          {this.renderSquare(4)}
-          {this.renderSquare(5)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(6)}
-          {this.renderSquare(7)}
-          {this.renderSquare(8)}
-        </div>
-      </div>
-    );
-  }
-
+   const squareStyle = {};
+ }
 }
 
 export default Board;
