@@ -34,10 +34,10 @@ class Board extends React.Component {
             {"border-bottom": "0px"},
             {"border-right": "0px", "border-bottom": "0px"},
         ]
-        var squareStyle = {}
-        var keys = Object.keys(squareStyles[index])
-        for (var i = 0; i < keys.length; i++) {
-            var key = keys[i]
+        let squareStyle = {}
+        let keys = Object.keys(squareStyles[index])
+        for (let i = 0; i < keys.length; i++) {
+            let key = keys[i]
             squareStyle[key] = squareStyles[index][key]
         }
         if (value === 'x') {
@@ -53,19 +53,19 @@ class Board extends React.Component {
     //事件監聽，判斷遊戲結果。
     handleClicked(index) {
         if (this.calculateGameState(this.state.values) === "正在玩" && this.state.values[index] === '') {
-            var values = this.state.values.slice()
+            let values = this.state.values.slice()
             if (this.state.nextX) {
                 values[index] = 'x'
             } else {
                 values[index] = 'o'
             }
-            var nextX = !this.state.nextX
+            let nextX = !this.state.nextX
             this.setState({values: values, nextX: nextX})
-            var gameState = this.calculateGameState(values)
+            let gameState = this.calculateGameState(values)
             if (gameState === "正在玩") {
-                var values = values.slice()
-                var player = nextX ? 'x' : 'o'
-                var index = this.searchMove(values, player)
+                values = values.slice()
+                let player = nextX ? 'x' : 'o'
+                let index = this.searchMove(values, player)
                 values[index] = player
                 this.setState({
                         values: values, nextX: !nextX, startX: this.state.startX
@@ -77,14 +77,14 @@ class Board extends React.Component {
 
     //隨機電腦放的位置，用陣列存放。
     randomlyChoose() {
-        var values = ['', '', '', '', '', '', '', '', '']
+        let values = ['', '', '', '', '', '', '', '', '']
         values[Math.floor(Math.random() * this.state.values.length)] = 'o'
         return values
     }
 
     //重新清空原始資料 重新玩。
     restartGame() {
-        var gameState = this.calculateGameState(this.state.values)
+        let gameState = this.calculateGameState(this.state.values)
         if (gameState === "playing") {
             this.setState({
                     values: ['', '', '', '', '', '', '', '', ''],
@@ -134,8 +134,8 @@ class Board extends React.Component {
 
 
     findEmpties(values) {
-        var empties = []
-        for (var i = 0; i < values.length; i++) {
+        let empties = []
+        for (let i = 0; i < values.length; i++) {
             if (values[i] === '') {
                 empties.push(i)
             }
@@ -144,22 +144,22 @@ class Board extends React.Component {
     }
 
     searchMove(values, player) {
-        var empties = this.findEmpties(values)
-        var result = []
-        for (var i = 0; i < empties.length; i++) {
-            var emptyIndex = empties[i]
+        let empties = this.findEmpties(values)
+        let result = []
+        for (let i = 0; i < empties.length; i++) {
+            let emptyIndex = empties[i]
             values[emptyIndex] = player
             result.push(this.minimax(values, player === 'x' ? 'o' : 'x'))
             values[emptyIndex] = ''
         }
-        for (var i = 0; i < result.length; i++) {
+        for (let i = 0; i < result.length; i++) {
             if (player === 'x' && result[i] === 'X 贏') {
                 return empties[i]
             } else if (player === 'o' && result[i] === 'O 贏') {
                 return empties[i]
             }
         }
-        for (var i = 0; i < result.length; i++) {
+        for (let i = 0; i < result.length; i++) {
             if (result[i] === '平手') {
                 return empties[i]
             }
@@ -168,24 +168,24 @@ class Board extends React.Component {
     }
 
     minimax(values, player) {
-        var gameState = this.calculateGameState(values)
+        let gameState = this.calculateGameState(values)
         if (gameState === '正在玩') {
-            var empties = this.findEmpties(values)
-            var result = []
-            for (var i = 0; i < empties.length; i++) {
-                var emptyIndex = empties[i]
+            let empties = this.findEmpties(values)
+            let result = []
+            for (let i = 0; i < empties.length; i++) {
+                let emptyIndex = empties[i]
                 values[emptyIndex] = player
                 result.push(this.minimax(values, player === 'x' ? 'o' : 'x'))
                 values[emptyIndex] = ''
             }
-            for (var i = 0; i < result.length; i++) {
+            for (let i = 0; i < result.length; i++) {
                 if (player === 'x' && result[i] === 'X 贏') {
                     return result[i]
                 } else if (player === 'o' && result[i] === 'O 贏') {
                     return result[i]
                 }
             }
-            for (var i = 0; i < result.length; i++) {
+            for (let i = 0; i < result.length; i++) {
                 if (result[i] === '平手') {
                     return result[i]
                 }
@@ -197,7 +197,7 @@ class Board extends React.Component {
     }
 
     displayGameState() {
-        var gameState = this.calculateGameState(this.state.values)
+        let gameState = this.calculateGameState(this.state.values)
         if (gameState !== "正在玩") {
             return "遊戲結束: " + gameState
         } else {
