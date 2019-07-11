@@ -50,9 +50,9 @@ class Board extends React.Component {
         return <Square value={value} squareStyle={squareStyle} onClicked={() => this.handleClicked(index)}/>
     }
 
+
     //事件監聽，判斷遊戲結果。
     handleClicked(index) {
-        if (this.calculateGameState(this.state.values) === "正在玩" && this.state.values[index] === '') {
             let values = this.state.values.slice()
             if (this.state.nextX) {
                 values[index] = 'x'
@@ -72,7 +72,6 @@ class Board extends React.Component {
                     }
                 )
             }
-        }
     }
 
     //隨機電腦放的位置，用陣列存放。
@@ -131,7 +130,6 @@ class Board extends React.Component {
         }
         return "平手"
     }
-
 
     findEmpties(values) {
         let empties = []
@@ -205,6 +203,11 @@ class Board extends React.Component {
         }
     }
 
+    componentDidUpdate(prevProps, prevState) {
+      if (this.calculateGameState(this.state.values) === "正在玩" && this.state.values[index] === '') {
+        return this.handleClicked(index); 
+      }
+    }
     render() {
         return (
             <div>
