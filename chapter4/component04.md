@@ -19,22 +19,25 @@ class HelloTitle extends React.Component {
 ReactDOM.render(<HelloTitle />,document.getElementById('root'))
 ````
 
-
-
 2. 事件處理與狀態更新
-
 Event Handlers
+https://www.youtube.com/watch?v=Znqv84xi8Vs
+https://www.youtube.com/watch?v=kVWpBtRjkCk
+https://www.youtube.com/watch?v=hTAsjKInRa8
 
 State Update
+https://5xruby.tw/posts/react-tip/
 https://codesandbox.io/embed/intelligent-chebyshev-fj125
+
+State 介紹
 
 3. 組件的自訂函式
 https://medium.com/@brianwu291/react-series-part4-conponent-driven-development-7535b6b66876
 
 4. props: 上面傳下來的屬性
+
    Props 主要是提供值給組件使用，屬性或是資料。
    Props（Property）有幾個特點：
-
    1. Props是由父層傳遞下去
    2. Props是不可以自己做更改
    3. 只要父層的Props值有變動，Component即會重新render
