@@ -4,7 +4,9 @@ class PomodoroTimer extends React.Component{
 
     constructor(){
       super();
-      this.state = {timeElapsed: 0}
+      this.state = {
+        timeElapsed: 0
+      }
     }
 
     totalTime(timeOne, timeTwo){
@@ -12,7 +14,6 @@ class PomodoroTimer extends React.Component{
     }
 
     componentDidMount() {
-        // console.log(new Date());
         this.setInterval = setInterval(this.elapseTime.bind(this),1000)
         this.setState({start: new Date()});
     }
@@ -43,8 +44,10 @@ class PomodoroTimer extends React.Component{
 
     render(){
       return(
-        <div>This timer runs for {this.props.workingTime} minutes,
+        <div>
+        This timer runs for {this.props.workingTime} minutes,
         followed by rest of {this.props.restingTime} minutes.
+        <br />
         <br />
         For a total time of {this.totalTime(this.props.workingTime, this.props.restingTime)} minutes.
         <br />
