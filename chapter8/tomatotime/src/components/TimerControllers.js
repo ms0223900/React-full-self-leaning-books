@@ -4,6 +4,7 @@ import WorkController from './WorkController';
 
 import BreakController from './BreakController';
 
+// 番茄鐘控制時間
 export default class TimerControllers extends Component {
 	render(){
 		return (

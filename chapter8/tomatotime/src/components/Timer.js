@@ -2,6 +2,7 @@ import React from 'react';
 
 export default class Timer extends Component {
 
+  //計時器
   timer = () => {
     if(this.props.timeRunning === true){
       clearInterval(this.props.timerId)

@@ -1,5 +1,7 @@
 import React,{ Component } from 'react';
 
+
+//休息五分鐘時間
 export default class BreackController extends Component {
 	handleBreakIncrement = () => {
 		this.props.incrementBreakTime()
@@ -18,7 +20,7 @@ export default class BreackController extends Component {
 					{this.props.breakTime}
 				</span>
         <button onClick={this.handleWorkDecrement}>
-					- 
+					-
 				</button>
 			</div>
 		)

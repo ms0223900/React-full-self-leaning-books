@@ -1,7 +1,7 @@
 import React,{ Component } from 'react';
 
 export default class WorkController extends Component {
-
+// 番茄鐘25分鐘設定
 	handleWorkIncrement = () => {
 		this.props.incrementWorkTime()
 		if(this.props.timeRunning === false){
