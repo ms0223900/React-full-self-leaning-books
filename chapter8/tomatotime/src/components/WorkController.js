@@ -5,7 +5,8 @@ export default class WorkControll extends Component {
 		return (
 			<div>
 				<button type="button">+</button>
-        
+        <span>/worktime/</span>
+        <button type="button">-</button>
 			</div>
 		)
 	}
