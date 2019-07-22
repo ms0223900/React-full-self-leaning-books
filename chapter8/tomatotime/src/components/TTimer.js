@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-export default ({ totalTime=100, isPause=false }) => {
+export default ({ totalTime=1500, isPause=false }) => {
   const[time, setTime] = useState(totalTime)
   useEffect(() => {
     const timer = !isPause && setInterval(() => {
